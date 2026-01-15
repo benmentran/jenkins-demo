@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        APP_NAME = "jenkins-demo"
+        ENV = "env"
+        VERSION = "1.0.0"
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -22,8 +27,18 @@ pipeline {
 
         stage('Package') {
             steps {
-                sh 'cho Packing app'
+                sh 'echo Packing app'
             }
+        }
+
+        stage('Environment Tests') {
+            steps {
+                sh '''
+                    echo App: $APP_NAME
+                    echo Env: $ENV
+                    echo Version: $VERSION
+                '''
+            }    
         }
     }
 
