@@ -4,21 +4,25 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Checking out source code...'
+                checkout scm
             }
         }
 
-        stage("Hello DevOps") {
+        stage("Build") {
             steps {
-                echo 'Hello Jenkins!'
-                echo 'Hello DevOps Pipeline!'
+                sh 'echo Building application'
             }
         }
 
-        stage('Environment Info') {
+        stage('Test') {
             steps {
-                sh 'uname -a'
-                sh 'java -version'
+                sh 'echo Running Tests'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                sh 'cho Packing app'
             }
         }
     }
