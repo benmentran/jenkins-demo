@@ -9,8 +9,3 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 CMD ["bash"]
-
-
-
-
-
