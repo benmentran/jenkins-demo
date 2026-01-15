@@ -9,7 +9,7 @@ pipeline {
         }
 
         stage("Hello DevOps") {
-            step {
+            steps {
                 echo 'Hello Jenkins!'
                 echo 'Hello DevOps Pipeline!'
             }
