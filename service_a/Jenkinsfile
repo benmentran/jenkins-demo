@@ -1,0 +1,30 @@
+node {
+    def APP_NAME = "Jenkins-multibranch"
+    def ENV = "env"
+    
+    stage('Checkout') {
+        checkout scm
+    }
+
+    stage('Build') {
+        sh 'echo Building Application'
+    }
+
+    stage('Test') {
+        sh 'echo Running Tests'
+    }
+
+    stage('Package') {
+        sh 'echo Packing app'
+    }
+
+    stage('Environment Tests') {
+        sh """
+            echo App: ${APP_NAME}
+            echo Env: ${ENV}
+            echo Version: ${VERSION}
+        """
+    }
+
+    echo "Pipeline finished successfully!"
+}
